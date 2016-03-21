@@ -1,0 +1,7 @@
+frobshop/db.sqlite3
+frobshop/media
+bin
+include
+lib
+share
+pip-selfcheck.json
