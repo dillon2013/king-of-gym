@@ -27,9 +27,9 @@ print('!!! base path is !!!' + BASE_DIR)
 SECRET_KEY = '&+x39s$8sic8e54!)z@0f&t8lk-2%k21yv($q8*hlfcpzc)xr6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
