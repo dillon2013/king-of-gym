@@ -1,5 +1,5 @@
-frobshop/db.sqlite3
-frobshop/media
+src/db.sqlite3
+src/media
 bin
 include
 lib
