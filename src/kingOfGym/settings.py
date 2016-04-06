@@ -28,7 +28,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False;
 
-ALLOWED_HOSTS = ['127.0.0.1','king-of-gym-dev.eu-west-1.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['king-of-gym-dev.eu-west-1.elasticbeanstalk.com']
 
 
 # Application definition
@@ -107,14 +107,6 @@ WSGI_APPLICATION = 'kingOfGym.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#         'ATOMIC_REQUESTS': True,
-#     }
-# }
-
 if 'RDS_DB_NAME' in os.environ:
     DATABASES = {
         'default': {
@@ -164,7 +156,7 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = BASE_DIR + '/static/'
 MEDIA_ROOT = BASE_DIR + '/media/'
 
-OSCAR_MISSING_IMAGE_URL = MEDIA_URL + 'image_not_found.jpg'
+# OSCAR_MISSING_IMAGE_URL = MEDIA_URL + 'image_not_found.jpg'
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
