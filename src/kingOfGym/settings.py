@@ -26,7 +26,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '&+x39s$8sic8e54!)z@0f&t8lk-2%k21yv($q8*hlfcpzc)xr6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False;
 
 ALLOWED_HOSTS = ['king-of-gym-dev.eu-west-1.elasticbeanstalk.com']
 
@@ -107,13 +107,13 @@ WSGI_APPLICATION = 'kingOfGym.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'ATOMIC_REQUESTS': True,
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#         'ATOMIC_REQUESTS': True,
+#     }
+# }
 
 if 'RDS_DB_NAME' in os.environ:
     DATABASES = {
@@ -124,6 +124,7 @@ if 'RDS_DB_NAME' in os.environ:
             'PASSWORD': os.environ['RDS_PASSWORD'],
             'HOST': os.environ['RDS_HOSTNAME'],
             'PORT': os.environ['RDS_PORT'],
+            'ATOMIC_REQUESTS': True,
         }
     }
 else:
@@ -135,6 +136,7 @@ else:
             'PASSWORD': '',
             'HOST': 'localhost',
             'PORT': '3306',
+            'ATOMIC_REQUESTS': True,
         }
     }
 
@@ -162,6 +164,8 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = BASE_DIR + '/static/'
 MEDIA_ROOT = BASE_DIR + '/media/'
 
+OSCAR_MISSING_IMAGE_URL = MEDIA_URL + 'image_not_found.jpg'
+
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -175,3 +179,8 @@ HAYSTACK_CONNECTIONS = {
         'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
     },
 }
+
+OSCAR_PROMOTION_POSITIONS = (('page', 'Page'),
+                             ('right', 'Right-hand sidebar'),
+                             ('left', 'Left-hand sidebar'),
+                             ('home', 'Home Banner'))
